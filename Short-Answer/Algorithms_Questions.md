@@ -11,7 +11,6 @@ a)  a = 0
       a = a + n * n
 ```
 
-
 ```
 b)  sum = 0
     for i in range(n):
@@ -34,3 +33,7 @@ c)  def bunnyEars(bunnies):
 Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor f or higher, and doesn't get broken if dropped off a floor less than floor f. Devise a strategy to determine the value of f such that the number of dropped + broken eggs is minimized.
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
+
+
+f = n-story divided by 2 to start mid way to test the egg drop. EggDrop(f) if the egg breaks we reduce f by 1 and try again until the egg doesn't break. If it doesn't break
+on the initial drop we increase f by 1 until it does break. At the end we know exactly what f is when the egg breaks.
