@@ -94,48 +94,55 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def compare_neighbors_backwards(self):
+
+        self.swap_item()
+        self.move_left()
+        if self.compare_item() == -1:
+            self.swap_item()
+            self.move_right()
+            self.swap_item()
+            self.move_left()
+            self.set_light_off()
+        else:
+            self.move_right()
+            self.swap_item()
+            self.move_left()
+
+    def compare_neighbors(self):
+
+        self.swap_item()
+        self.move_right()
+        if self.compare_item() == 1:
+
+            self.swap_item()
+            self.move_left()
+            self.swap_item()
+
+            self.move_right()
+            self.set_light_off()
+
+        else:
+            self.move_left()
+            self.swap_item()
+            self.move_right()
+
+    def sort_helper(self):
+
+        self.set_light_on()
+        while self.can_move_right():
+            self.compare_neighbors()
+
+        if self.light_is_on() == False:
+            while self.can_move_left():
+                self.compare_neighbors_backwards()
+
     def sort(self):
         """
         Sort the robot's list.
         """
-
-        for i in range(0, len(self._list) - 1):
-            cur_index = i
-            smallest_index = cur_index
-
-            for j in range(cur_index+1, len(self._list)):
-                if (self._item == None):
-                    self._item = self._list[j]
-                self.move_right()
-                if (self.compare_item() == 1):
-                    self.swap_item()
-                    smallest_index = j
-                elif (self.compare_item() == -1):
-                    pass
-
-        # Bubble sorting
-        # for i in range(len(self._list)-1, 0, -1):
-
-        #     for j in range(i):
-        #         if self._list[j] > self._list[j+1]:
-
-        #             ele = self._list[j]
-        #             self._list[j] = self._list[j+1]
-        #             self._list[j+1] = ele
-
-        # Selection sorting
-            # for i in range(0, len(arr) - 1):
-            #     cur_index = i
-            #     smallest_index = cur_index
-
-            #     for j in range(cur_index+1, len(arr)):
-            #         if arr[smallest_index] > arr[j]:
-            #             smallest_index = j
-
-            #     ele = arr[cur_index]
-            #     arr[cur_index] = arr[smallest_index]
-            #     arr[smallest_index] = ele
-
+        while self.light_is_on() == False:
+            self.sort_helper()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line

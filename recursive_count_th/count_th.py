@@ -11,9 +11,7 @@ def count_th(word):
     return occurences
     # print("Times in the string: ", occurences)  # Testing code
 
-
 def countInString(word, testCase):
-
     n1 = len(word)
     n2 = len(testCase)
 

@@ -4,26 +4,26 @@
 
 a)
 
-```python  altogether ((O(n^4)))  time complexity
-    a = 0 # O(1)
-    while (a < n * n * n): #(O(n^3))
-      a = a + n * n  # (O(n^1))
+```altogether its O(n) time complexity, it has 1 while loop, which means it's performing 1 operation for n things
+    a = 0 
+    while (a < n * n * n):      
+      a = a + n * n  
 ```
 
 b)
 
-```Altogether its O(n^2) time complexity
-    sum = 0 (O(1))
-    for i in range(n):  (O(n))
-      j = 1   Order 1
-      while j < n: (O(n))
-        j *= 2   (O(1))
-        sum += 1 (O(1))
+```Altogether its  O(n^2) time complexity,has a for loop and a while loop depending on n
+    sum = 0
+    for i in range(n):
+      j = 1
+      while j < n:
+        j *= 2
+        sum += 1
 ```
 
 c)
 
-```Altogether O(n) time complexity
+```Altogether O(n) time complexity,  Still dependent on n so I think o(n) makes sense
     def bunnyEars(bunnies):
       if bunnies == 0:
         return 0
@@ -40,4 +40,4 @@ Write out your proposed algorithm in plain English or pseudocode AND give the ru
 f = n-story divided by 2 to start mid way to test the egg drop. EggDrop(f) if the egg breaks we reduce f by 1 and try again until the egg doesn't break. If it doesn't break
 on the initial drop we increase f by 1 until it does break. At the end we know exactly what f is when the egg breaks. (???How do we determine when an egg breaks???)
 
-I think the time complexity is O(n) as it depends on how many stories (n-story) that gets passed in
+I think the time complexity is O(log n) as it depends on how many stories (n-story) and we're halfing it
